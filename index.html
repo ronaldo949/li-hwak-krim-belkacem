@@ -1,106 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Krim_Belkacem.About_school.islamlihwak</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f7f8;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-
-        header {
-            background: linear-gradient(90deg, #6a11cb, #2575fc);
-            color: white;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-
-        main {
-            padding: 30px 20px;
-            max-width: 900px;
-            margin: auto;
-        }
-
-        .section {
-            background-color: white;
-            margin: 30px 0;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .section:hover {
-            transform: translateY(-5px);
-        }
-.section h2 {
-            color: #2575fc;
-            margin-bottom: 15px;
-        }
-
-        .section ul {
-            padding-left: 20px;
-        }
-
-        .section ul li {
-            margin-bottom: 10px;
-        }
-
-        img {
-            display: block;
-            max-width: 100%;
-            height: auto;
-            margin: 15px auto 0;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        footer {
-            background: linear-gradient(90deg, #6a11cb, #2575fc);
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-top: 30px;
-            font-size: 14px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Krim Belkacem | About School | Islam Li Hwak</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #eef2f3, #dfe4ea);
+      color: #333;
+      scroll-behavior: smooth;
+      backdrop-filter: blur(3px);
+    }
+    header {
+      background-image: url('kb1.jpg');
+      height: 450px;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      background-color: rgba(0, 0, 0, 0.3);
+      background-blend-mode: darken;
+      transition: backdrop-filter 0.8s ease, background-color 0.8s ease;
+    }
+    header.blur {
+      backdrop-filter: blur(15px);
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    header h1 {
+      font-size: 48px;
+      margin: 0;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+    nav {
+      margin-top: 20px;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 18px;
+      border-bottom: 2px solid transparent;
+      transition: border 0.3s, transform 0.3s;
+    }
+    nav a:hover {
+      border-bottom: 2px solid white;
+      transform: translateY(-3px);
+    }
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .section {
+      background: rgba(255,255,255,0.85);
+      margin-bottom: 40px;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      backdrop-filter: blur(4px);
+    }
+    .section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .section h2 {
+      color: #02076F; /* لون العناوين الكبير */
+      margin-bottom: 15px;
+      font-size: 28px;
+    }
+    .section p, .section ul {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .section ul {
+      padding-left: 20px;
+    }
+    .section ul li {
+      margin-bottom: 10px;
+    }
+    img {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 15px;
+      margin-top: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    img.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    footer {
+      background: linear-gradient(to right, #02076F, #01043F);
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 40px;
+      font-size: 14px;
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.2);
+    }
+    #topBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 99;
+      font-size: 18px;
+      border: none;
+      outline: none;
+      background: linear-gradient(to right, #02076F, #01043F); /* نفس لون الفوتر */
+      color: white;
+      cursor: pointer;
+      padding: 12px 16px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      opacity: 0;
+      transform: translateY(30px);
+      pointer-events: none;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    #topBtn.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>Welcome to Krim Belkacem</h1>
-    </header>
+<header id="mainHeader">
+  <h1>Welcome to Krim Belkacem School</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#goals">Goals</a>
+    <a href="#photos">Photos</a>
+  </nav>
+</header>
 
-    <main>
-        <div class="section">
-            <h2>About the School</h2>
-<p>Krim Belkacem is located in tizi ouzou, Draa Ben Khedda. It was established in 1988, and It has a team of dedicated teachers and hardworking students</p>
-        </div>
+<main>
+  <div id="about" class="section">
+    <h2>About the School</h2>
+    <p>Krim Belkacem is located in Tizi Ouzou, Draa Ben Khedda. It was established in 1988 and has a team of dedicated teachers and hardworking students.</p>
+  </div>
+<div id="goals" class="section">
+    <h2>Our Goals</h2>
+    <ul>
+      <li>Achieving the highest percentage of successful students.</li>
+      <li>Building a new generation based on education and responsibility.</li>
+      <li>Providing students with the appropriate amount of information on various topics.</li>
+      <li>Developing students’ awareness of exercising their duties and rights within the limits of their age and the characteristics of the stage they are going through.</li>
+      <li>Consolidating correct humanitarian principles in the hearts of students, and providing them with intellectual and physical education.</li>
+    </ul>
+  </div>
 
-        <div class="section">
-            <h2>Our Goals</h2>
-            <ul>
-                <li>Achieving the highest percentage of successful students</li>
-                <li>Building a new generation based on education and responsibility</li>
-                <li>Providing students with the appropriate amount of information on various topics</li>
-                <li>Developing students’s awareness of exercising their duties and rights within the limits of their age and the characteristics of the stage they are going through</li>
-                <li>Consolidating correct humanitarian principles in the hearts of students, and providing them with intellectual and physical education</li>
-            </ul>
-        </div>
+  <div id="photos" class="section">
+    <h2>Photo from the School</h2>
+    <img src="kb.jpg" alt="School photo">
+  </div>
+</main>
 
-        <div class="section">
-            <h2>Photo from the School</h2>
-            <img src="kb.jpg" alt="School photo">
-        </div>
-    </main>
+<footer>
+  &copy; 2025 Krim Belkacem. Created by Islam Li Hwak.
+</footer>
 
-    <footer>
-        &copy; krim belkacem 2025. Islam li hwak
-    </footer>
+<button onclick="topFunction()" id="topBtn" title="Go to top">↑</button>
+
+<script>
+  let topBtn = document.getElementById("topBtn");
+  let header = document.getElementById("mainHeader");
+
+  window.onscroll = function() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      topBtn.classList.add("show");
+      header.classList.add("blur");
+    } else {
+      topBtn.classList.remove("show");
+      header.classList.remove("blur");
+    }
+  };
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  const sections = document.querySelectorAll('.section, img');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, {
+    threshold: 0.3
+  });
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
 </body>
 </html>
